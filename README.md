@@ -1,11 +1,14 @@
 Dependencies for each Microservice: 
 
---eureka-server
+--eureka-server: 
+
 Spring Cloud Starter Netflix Eureka Server
 Spring Boot DevTools
 Lombok
 
+
 --cello-service
+
 Spring Boot Starter Data MongoDB
 Spring Boot Starter Web
 Spring Cloud Starter CircuitBreaker Resilience4J
