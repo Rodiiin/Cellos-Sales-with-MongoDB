@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "39dba2a2-def0-4e45-a7c4-6c2f855125bf",
+		"name": "MongoDB & Springboot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34610394"
+	},
+	"item": [
+		{
+			"name": "Create Cello",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"celloName\": \"Cello Stradivarius\",\r\n    \"celloSize\": \"4/4\",\r\n    \"celloCost\": 15000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8801/api/cellos/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8801",
+					"path": [
+						"api",
+						"cellos",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Cellos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8801/api/cellos/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8801",
+					"path": [
+						"api",
+						"cellos",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cello by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8801/api/cellos/getOne/6757591342be581c99192665",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8801",
+					"path": [
+						"api",
+						"cellos",
+						"getOne",
+						"6757591342be581c99192665"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Cello",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"celloName\": \"Red blood dragon\",\r\n    \"celloSize\": \"3/4\",\r\n    \"celloCost\": 12000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8801/api/cellos/update/6757591342be581c99192665",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8801",
+					"path": [
+						"api",
+						"cellos",
+						"update",
+						"6757591342be581c99192665"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
