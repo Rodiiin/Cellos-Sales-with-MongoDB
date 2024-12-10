@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "39dba2a2-def0-4e45-a7c4-6c2f855125bf",
 		"name": "MongoDB & Springboot",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "34610394"
 	},
 	"item": [
@@ -20,19 +20,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:8801/api/cellos/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8801",
-					"path": [
-						"api",
-						"cellos",
-						"create"
-					]
-				}
+				"url": "http://localhost:8801/api/cellos/create"
 			},
 			"response": []
 		},
@@ -41,19 +29,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:8801/api/cellos/getAll",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8801",
-					"path": [
-						"api",
-						"cellos",
-						"getAll"
-					]
-				}
+				"url": "http://localhost:8801/api/cellos/getAll"
 			},
 			"response": []
 		},
@@ -62,20 +38,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:8801/api/cellos/getOne/6757591342be581c99192665",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8801",
-					"path": [
-						"api",
-						"cellos",
-						"getOne",
-						"6757591342be581c99192665"
-					]
-				}
+				"url": "http://localhost:8801/api/cellos/getOne/6757591342be581c99192665"
 			},
 			"response": []
 		},
@@ -93,8 +56,17 @@
 						}
 					}
 				},
+				"url": "http://localhost:8801/api/cellos/update/6757591342be581c99192665"
+			},
+			"response": []
+		},
+		{
+			"name": "Detailed Search",
+			"request": {
+				"method": "GET",
+				"header": [],
 				"url": {
-					"raw": "http://localhost:8801/api/cellos/update/6757591342be581c99192665",
+					"raw": "http://localhost:8801/api/cellos/search?name=&size=4/4&costMin=&costMax=20000&limit=5&sortField=name&sortOrder=desc",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -103,18 +75,39 @@
 					"path": [
 						"api",
 						"cellos",
-						"update",
-						"6757591342be581c99192665"
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": ""
+						},
+						{
+							"key": "size",
+							"value": "4/4"
+						},
+						{
+							"key": "costMin",
+							"value": ""
+						},
+						{
+							"key": "costMax",
+							"value": "20000"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "sortField",
+							"value": "name"
+						},
+						{
+							"key": "sortOrder",
+							"value": "desc"
+						}
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "New Request",
-			"request": {
-				"method": "GET",
-				"header": []
 			},
 			"response": []
 		}

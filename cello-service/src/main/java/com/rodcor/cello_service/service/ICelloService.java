@@ -20,4 +20,8 @@ public interface ICelloService {
 
     // Edit a Cello
     public void editCello(String idCello, Cello cello);
+
+    // Search Cellos based on criteria
+    List<Cello> searchCellos(String name, String size, Integer costMin, Integer costMax, Integer limit, String sortBy, String sortOrder);
+
 }

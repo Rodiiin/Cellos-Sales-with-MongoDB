@@ -53,4 +53,19 @@ public class CelloController {
         celloService.deleteCello(id);
         return "The Cello has being deleted";
     }
+
+    // Search for Cellos based on criteria
+    @GetMapping("/search")
+    public ResponseEntity<List<Cello>> searchCellos(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String size,
+            @RequestParam(required = false) Integer costMin,
+            @RequestParam(required = false) Integer costMax,
+            @RequestParam(required = false) Integer limit,
+            @RequestParam(required = false) String sortField,
+            @RequestParam(required = false) String sortOrder) {
+        List<Cello> cellos = celloService.searchCellos(name, size, costMin, costMax, limit, sortField, sortOrder);
+        return ResponseEntity.ok(cellos);
+    }
+
 }

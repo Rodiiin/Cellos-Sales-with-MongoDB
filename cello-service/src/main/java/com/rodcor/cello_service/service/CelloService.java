@@ -6,8 +6,10 @@ import com.rodcor.cello_service.repository.ICelloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CelloService implements ICelloService {
@@ -62,6 +64,47 @@ public class CelloService implements ICelloService {
             throw new RuntimeException("Cello with ID " + idCello + " not found");
         }
     }
+
+    // Search and sort Cellos based on criteria
+    @Override
+    public List<Cello> searchCellos(String name, String size, Integer costMin, Integer costMax, Integer limit, String sortField, String sortOrder) {
+        List<Cello> cellos = celloRepository.findAll();
+
+        List<Cello> filteredCellos = cellos.stream()
+                .filter(cello -> (name == null || cello.getCelloName().contains(name)) &&
+                        (size == null || cello.getCelloSize().equals(size)) &&
+                        (costMin == null || cello.getCelloCost() >= costMin) &&
+                        (costMax == null || cello.getCelloCost() <= costMax))
+                .collect(Collectors.toList());
+
+        if (sortField != null && sortOrder != null) {
+            Comparator<Cello> comparator = null;
+
+            switch (sortField) {
+                case "name":
+                    comparator = Comparator.comparing(Cello::getCelloName);
+                    break;
+                case "cost":
+                    comparator = Comparator.comparingInt(Cello::getCelloCost);
+                    break;
+            }
+
+            if ("desc".equalsIgnoreCase(sortOrder) && comparator != null) {
+                comparator = comparator.reversed();
+            }
+
+            if (comparator != null) {
+                filteredCellos.sort(comparator);
+            }
+        }
+
+        if (limit != null) {
+            return filteredCellos.stream().limit(limit).collect(Collectors.toList());
+        }
+
+        return filteredCellos;
+    }
+
 
 }
 
